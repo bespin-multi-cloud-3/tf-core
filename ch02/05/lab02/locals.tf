@@ -1,12 +1,12 @@
 locals {
-  project = "tf-core-lab01"
+  project = "tf-core-lab02"
 
-  vpc_id = data.aws_vpc.default
+  vpc_id = data.aws_vpc.default.id
 
   instance = {
     name = "web"
 
-    ami                         = data.aws_ami.amazon_linux
+    ami                         = data.aws_ami.amazon_linux.id
     instance_type               = var.instance_type
     associate_public_ip_address = true
     subnet_id                   = data.aws_subnets.default.ids[0]
@@ -20,7 +20,7 @@ locals {
   iamrole = {
     name = "instance"
 
-    assume_role_policy = data.aws_iam_policy_document.ec2_assume_role
-    policy_arn         = data.aws_iam_policy.aws_ssm_core
+    assume_role_policy = data.aws_iam_policy_document.ec2_assume_role.json
+    policy_arn         = data.aws_iam_policy.aws_ssm_core.arn
   }
 }
