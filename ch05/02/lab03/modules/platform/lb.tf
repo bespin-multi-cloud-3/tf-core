@@ -1,5 +1,5 @@
 resource "aws_lb" "this" {
-  name               = "${local.namespace}-lb-${local.lb.name}"
+  name = "${local.namespace}-lb-${local.lb.name}"
 
   load_balancer_type = local.lb.load_balancer_type
   internal           = local.lb.internal
@@ -15,7 +15,31 @@ resource "aws_lb_listener" "this" {
 
   default_action {
     type             = "forward"
-    # target_group_arn = aws_lb_target_group.this.arn
+    target_group_arn = aws_lb_target_group.this.arn
+  }
+}
+
+resource "aws_lb_target_group" "this" {
+  name = "${local.namespace}-tg-${local.lb.name}"
+
+  vpc_id      = local.vpc_id
+  port        = local.lb.target_group.port
+  protocol    = local.lb.target_group.protocol
+  target_type = local.lb.target_group.target_type
+
+  health_check {
+    enabled             = local.lb.target_group.health_check.enabled
+    port                = local.lb.target_group.health_check.port
+    protocol            = local.lb.target_group.health_check.protocol
+    path                = local.lb.target_group.health_check.path
+    healthy_threshold   = local.lb.target_group.health_check.healthy_threshold
+    unhealthy_threshold = local.lb.target_group.health_check.unhealthy_threshold
+    timeout             = local.lb.target_group.health_check.timeout
+    interval            = local.lb.target_group.health_check.interval
+  }
+
+  tags = {
+    Name = "${local.namespace}-tg-${local.lb.name}"
   }
 }
 
@@ -28,7 +52,7 @@ resource "aws_security_group" "this" {
     to_port     = local.lb.listener.port
     from_port   = local.lb.listener.port
     cidr_blocks = local.lb.listener.cidr_blocks
-    protocol    = local.lb.listener.protocol
+    protocol    = "tcp"
   }
 
   egress {
@@ -40,5 +64,5 @@ resource "aws_security_group" "this" {
 
   tags = {
     Name = "${local.namespace}-sg-lb-${local.lb.name}"
-  }     
+  }
 }

@@ -14,7 +14,7 @@ locals {
     iam_instance_profile = var.iam_instance_profile
 
     allow_access = {
-      port        = 80
+      port        = 8080
       cidr_blocks = ["0.0.0.0/0"]
     }
   }

@@ -9,3 +9,5 @@ module "platform" {
   vpc_id     = module.network.vpc.id
   lb_subnets = [module.network.subnet["public-a"].id, module.network.subnet["public-b"].id]
 }
+
+
