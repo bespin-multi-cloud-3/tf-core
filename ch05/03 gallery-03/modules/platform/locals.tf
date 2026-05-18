@@ -22,13 +22,13 @@ locals {
     }
 
     target_group = {
-      port        = 8080
+      port        = var.lb_target_group_port
       protocol    = "HTTP"
       target_type = "instance"
 
       health_check = {
         enabled             = true
-        port                = 8080
+        port                = var.lb_target_group_port
         protocol            = "HTTP"
         path                = "/actuator/health"
         healthy_threshold   = 3

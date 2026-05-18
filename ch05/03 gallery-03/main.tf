@@ -11,6 +11,7 @@ module "platform" {
   vpc_id    = module.network.vpc["main"].id
 
   lb_subnets = [module.network.subnet["public-a"].id, module.network.subnet["public-b"].id]
+  lb_target_group_port = infra.lt.service_port
 }
 
 module "workload" {
@@ -24,4 +25,5 @@ module "workload" {
 
   lt_iam_instance_profile_name = module.platform.iamprofile["instance"].name
   lt_allow_access_cidr_blocks  = [module.network.subnet["public-a"].cidr_block, module.network.subnet["public-b"].cidr_block]
+  lt_service_port = infra.lt.service_port
 }
