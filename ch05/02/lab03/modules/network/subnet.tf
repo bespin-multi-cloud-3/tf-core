@@ -6,7 +6,7 @@ resource "aws_subnet" "public_0" {
   map_public_ip_on_launch = local.public_subnet[0].map_public_ip_on_launch
 
   tags = {
-    Name = "${var.namespace}-subnet-${local.public_subnet[0].name}"
+    Name = "${local.namespace}-subnet-${local.public_subnet[0].name}"
   }
 }
 
@@ -36,7 +36,7 @@ resource "aws_subnet" "public_1" {
   map_public_ip_on_launch = local.public_subnet[1].map_public_ip_on_launch
 
   tags = {
-    Name = "${var.namespace}-subnet-${local.public_subnet[1].name}"
+    Name = "${local.namespace}-subnet-${local.public_subnet[1].name}"
   }
 }
 
@@ -66,7 +66,7 @@ resource "aws_subnet" "private_0" {
   map_public_ip_on_launch = local.private_subnet[0].map_public_ip_on_launch
 
   tags = {
-    Name = "${var.namespace}-subnet-${local.private_subnet[0].name}"
+    Name = "${local.namespace}-subnet-${local.private_subnet[0].name}"
   }
 }
 
@@ -96,7 +96,7 @@ resource "aws_subnet" "private_1" {
   map_public_ip_on_launch = local.private_subnet[1].map_public_ip_on_launch
 
   tags = {
-    Name = "${var.namespace}-subnet-${local.private_subnet[1].name}"
+    Name = "${local.namespace}-subnet-${local.private_subnet[1].name}"
   }
 }
 
