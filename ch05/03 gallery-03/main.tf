@@ -10,8 +10,9 @@ module "platform" {
   namespace = local.namespace
   vpc_id    = module.network.vpc["main"].id
 
-  lb_subnets = [module.network.subnet["public-a"].id, module.network.subnet["public-b"].id]
-  lb_target_group_port = infra.lt.service_port
+  lb_subnets           = [module.network.subnet["public-a"].id, module.network.subnet["public-b"].id]
+  lb_listener_port     = local.infra.lb.listener_port
+  lb_target_group_port = local.infra.lt.service_port
 }
 
 module "workload" {
@@ -22,8 +23,9 @@ module "workload" {
 
   asg_vpc_zone_identifier = [module.network.subnet["private-a"].id, module.network.subnet["private-b"].id]
   asg_target_group_arns   = [module.platform.lb["main"].target_group.arn]
+  asg_deploy_version      = local.infra.asg.deploy_version
 
   lt_iam_instance_profile_name = module.platform.iamprofile["instance"].name
   lt_allow_access_cidr_blocks  = [module.network.subnet["public-a"].cidr_block, module.network.subnet["public-b"].cidr_block]
-  lt_service_port = infra.lt.service_port
+  lt_service_port              = local.infra.lt.service_port
 }

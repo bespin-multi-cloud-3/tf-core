@@ -15,8 +15,8 @@ locals {
 
     health_check_type         = "ELB"
     health_check_grace_period = 600
-
-    deploy_version = "1.0.1"
+    
+    deploy_version = var.asg_deploy_version
   }
 
   lt = {
