@@ -3,5 +3,5 @@ locals {
   project   = "lab01"
   namespace = "${local.org}-${local.project}"
 
-  message = "HELLO WORLD!! from ${local.namespace}"
+  message = "Hello Terraform from ${local.namespace}"
 }
