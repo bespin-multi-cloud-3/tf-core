@@ -1,9 +1,9 @@
 locals {
   org       = "tf-core"
-  project   = "lab01"
+  project   = "oidc-github"
   namespace = "${local.org}-${local.project}"
 
-  github_repo = "bespin-multi-cloud-3/tf-core"
+  github_repo = "bespin-multi-cloud-3/*"
 
   iamrole = {
     name       = "gha"
