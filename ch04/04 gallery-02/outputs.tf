@@ -1,7 +1,7 @@
 output "instance" {
   value = {
     (local.instance.name) = {
-      id = aws_instance.web.id
+      id        = aws_instance.web.id
       public_ip = aws_instance.web.public_ip
     }
   }

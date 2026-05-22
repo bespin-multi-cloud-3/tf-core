@@ -14,19 +14,19 @@ provider "aws" {
 }
 
 resource "aws_security_group" "web1" {
-    name = "tf-core-lab01-sg-web1"
+  name = "tf-core-lab01-sg-web1"
 
-    tags = {
-      Name = "tf-core-lab01-sg-web1"
-    }    
+  tags = {
+    Name = "tf-core-lab01-sg-web1"
+  }
 }
 
 resource "aws_security_group" "web2" {
-    name = "tf-core-lab01-sg-web2"
+  name = "tf-core-lab01-sg-web2"
 
-    tags = {
-      Name = "tf-core-lab01-sg-web2"
-    }    
+  tags = {
+    Name = "tf-core-lab01-sg-web2"
+  }
 }
 
 output "sg_web1" {

@@ -1,6 +1,6 @@
 locals {
-  org = "tf-core"
-  project = "lab02"
+  org         = "tf-core"
+  project     = "lab02"
   environment = terraform.workspace
 
   namespace = "${local.org}-${local.project}-${local.environment}"
@@ -26,7 +26,7 @@ locals {
     name = "web"
 
     ami                         = "ami-0c003e98ceffee43e"
-    instance_type               = terraform.workspace == "dev" ? "t3.micro" : "t3.small" 
+    instance_type               = terraform.workspace == "dev" ? "t3.micro" : "t3.small"
     associate_public_ip_address = true
 
     allow_access = {

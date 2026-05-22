@@ -1,6 +1,6 @@
 locals {
   namespace = var.namespace
-  
+
   iamrole = {
     name = "instance"
 

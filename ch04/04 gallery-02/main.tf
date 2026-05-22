@@ -54,7 +54,7 @@ resource "aws_instance" "web" {
   iam_instance_profile   = aws_iam_instance_profile.this.name
 
   user_data_replace_on_change = true
-  user_data_base64 = local.instance.user_data_base64
+  user_data_base64            = local.instance.user_data_base64
 
   depends_on = [aws_iam_role_policy_attachment.this]
 

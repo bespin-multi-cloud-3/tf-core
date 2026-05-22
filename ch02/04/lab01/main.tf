@@ -28,7 +28,7 @@ resource "aws_security_group" "instance" {
     from_port   = local.instance.allow_access.port
     to_port     = local.instance.allow_access.port
     protocol    = "tcp"
-    cidr_blocks = local.instance.allow_access.cidr_blocks 
+    cidr_blocks = local.instance.allow_access.cidr_blocks
   }
 
   egress {

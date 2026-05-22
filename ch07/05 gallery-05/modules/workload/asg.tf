@@ -1,9 +1,9 @@
 resource "aws_autoscaling_group" "this" {
   name = "${local.namespace}-asg-${local.asg.name}"
 
-  max_size         = local.asg.max_size
-  min_size         = local.asg.min_size
-  desired_capacity = local.asg.desired_capacity
+  max_size            = local.asg.max_size
+  min_size            = local.asg.min_size
+  desired_capacity    = local.asg.desired_capacity
   vpc_zone_identifier = local.asg.vpc_zone_identifier
 
   target_group_arns = local.asg.target_group_arns
@@ -47,7 +47,7 @@ resource "aws_launch_template" "this" {
 
   tag_specifications {
     resource_type = "instance"
-    tags = { Name = "${local.namespace}-instance-${local.lt.name}" }
+    tags          = { Name = "${local.namespace}-instance-${local.lt.name}" }
   }
 
   tags = {

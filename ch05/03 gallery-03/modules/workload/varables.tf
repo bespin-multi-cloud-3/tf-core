@@ -3,7 +3,7 @@ variable "namespace" {
 }
 
 variable "vpc_id" {
-  type = string  
+  type = string
 }
 
 variable "asg_vpc_zone_identifier" {

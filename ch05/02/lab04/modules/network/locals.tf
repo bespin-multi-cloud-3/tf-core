@@ -15,13 +15,13 @@ locals {
 
   public_subnet = [
     {
-      name = "public-a"
+      name                    = "public-a"
       cidr_block              = "10.0.1.0/24"
       availability_zone       = "ap-northeast-2a"
       map_public_ip_on_launch = true
     },
     {
-      name = "public-b"
+      name                    = "public-b"
       cidr_block              = "10.0.2.0/24"
       availability_zone       = "ap-northeast-2b"
       map_public_ip_on_launch = true
@@ -30,13 +30,13 @@ locals {
 
   private_subnet = [
     {
-      name = "private-a"
+      name                    = "private-a"
       cidr_block              = "10.0.101.0/24"
       availability_zone       = "ap-northeast-2a"
       map_public_ip_on_launch = false
     },
     {
-      name = "private-b"
+      name                    = "private-b"
       cidr_block              = "10.0.102.0/24"
       availability_zone       = "ap-northeast-2b"
       map_public_ip_on_launch = false

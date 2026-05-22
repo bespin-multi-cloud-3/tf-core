@@ -12,7 +12,7 @@ output "lb" {
       dns_name = aws_lb.this.dns_name
 
       listener = {
-        port = aws_lb_listener.this.port
+        port     = aws_lb_listener.this.port
         protocol = aws_lb_listener.this.protocol
       }
 

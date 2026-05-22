@@ -3,7 +3,7 @@ variable "namespace" {
 }
 
 variable "vpc_id" {
-  type = string  
+  type = string
 }
 
 variable "asg_vpc_zone_identifier" {
@@ -19,7 +19,7 @@ variable "asg_max_size" {
 }
 
 variable "asg_min_size" {
-  type = number  
+  type = number
 }
 
 variable "asg_desired_capacity" {
@@ -43,5 +43,5 @@ variable "lt_service_port" {
 }
 
 variable "lt_instance_type" {
-  type = string  
+  type = string
 }

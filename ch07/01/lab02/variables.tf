@@ -1,5 +1,5 @@
 variable "env" {
-  type = string  
+  type = string
 }
 
 variable "infra_lb_listener_port" {
@@ -11,7 +11,7 @@ variable "infra_lt_service_port" {
 }
 
 variable "infra_lt_instance_type" {
-  type = string  
+  type = string
 }
 
 variable "infra_asg_max_size" {

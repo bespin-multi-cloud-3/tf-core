@@ -20,6 +20,6 @@ output "subnet" {
 
     (local.private_subnet[1].name) = {
       id = aws_subnet.private_1.id
-    }    
+    }
   }
 }

@@ -29,5 +29,5 @@ locals {
     })
 
     policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-  }  
+  }
 }
