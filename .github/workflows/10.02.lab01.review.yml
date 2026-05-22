@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
     types: [opened, synchronize]
-    paths: ["ch10/02/lab01/infra/*.tf"]
+    paths: ["ch10/02/lab01/infra/*.tf", "ch10/02/lab01/infra/*.tfvars"]
 
 permissions:
   contents: read
@@ -44,7 +44,7 @@ jobs:
         
       - name: Terraform Plan
         id: plan
-        run: terraform plan -input=false
+        run: terraform plan -input=false -no-color
         continue-on-error: true
 
       - name: Post Plan to PR
